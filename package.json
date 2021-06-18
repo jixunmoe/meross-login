@@ -1,0 +1,15 @@
+{
+  "name": "meross-login",
+  "version": "1.0.0",
+  "description": "A POC to login to Meross IOT API and get user token/key.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"it works!\""
+  },
+  "author": "Jixun Wu<https://github.com/JixunMoe>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "uuid": "^8.3.2"
+  }
+}
