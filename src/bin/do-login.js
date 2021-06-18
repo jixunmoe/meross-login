@@ -29,7 +29,7 @@ async function main(argv) {
     console.info(resp);
     if (resp.apiStatus === 0) {
         console.info("login ok! save to user.json...");
-        fs.writeFileSync("user.json", JSON.stringify(resp.data, null, 4), 'utf-8');
+        fs.writeFileSync("user.json", JSON.stringify(resp.data, null, 2), 'utf-8');
     }
 }
 
