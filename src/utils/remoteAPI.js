@@ -17,11 +17,24 @@ const { encryptBody } = require("./httpUtils");
 //     "timeStamp": 1623977935
 // }
 
+const apiRegion = new Map([
+    ["US", {
+        code: "US",
+        base: "https://us-iot.meross.com",
+    }],
+    ["EU", {
+        code: "EU",
+        base: "https://eu-iot.meross.com",
+    }],
+]);
+
 class RemoteAPI {
+    config = { };
     accountCountryCode = 'US';
     remoteBase = "https://iot.meross.com/";
 
-    constructor() {
+    constructor(config) {
+        this.config = config;
         this.setRegionToUS();
     }
 
@@ -31,8 +44,16 @@ class RemoteAPI {
      * However, there's "eu-iot.meross.com" but gives the same 1030 error...
      */
     setRegionToUS() {
-        this.accountCountryCode = 'US';
-        this.remoteBase = "https://us-iot.meross.com";
+        this.setRegion('US');
+    }
+
+    setRegion(regionCode) {
+        if (!apiRegion.has(regionCode)) {
+            throw new RangeError(`invalid region code given: ${regionCode}; expected one of ${apiRegion.keys()}`);
+        }
+        const { code, base } = apiRegion.get(regionCode);
+        this.accountCountryCode = code;
+        this.remoteBase = base;
     }
 
     async signIn(email, password) {
@@ -45,7 +66,7 @@ class RemoteAPI {
             email,
             password,
             accountCountryCode: this.accountCountryCode,
-            mobileInfo: getMobileInfo(),
+            mobileInfo: getMobileInfo(this.config),
         });
 
         const resp = await fetch(url, {

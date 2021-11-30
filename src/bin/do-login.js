@@ -24,7 +24,7 @@ async function main(argv) {
         return 1;
     }
 
-    const api = new RemoteAPI();
+    const api = new RemoteAPI(require('../../config.json'));
     const resp = await api.signIn(email, password);
     console.info(resp);
     if (resp.apiStatus === 0) {

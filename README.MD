@@ -6,16 +6,24 @@ Install node v14+, then run `npm ci` to setup dependencies.
 
 ## Usage
 
-Run `gen-config.js` to generate a random mobile config (uuid):
+For command and its flags, run `node meross help` for built-in usage & help.
+
+### CLI usage walkthrough
+
+Run `generate-config` command to generate a random mobile config (uuid):
 
 ```bash
-node src/bin/gen-config.js
+node meross generate-config
 ```
 
 Then run the script to fetch user info:
 
 ```bash
-node src/bin/do-login.js "jixun.moe@your.email.com" "your-password"
+# Login to US region (default)
+node meross login "jixun.moe@your.email.com" "your-password"
+
+# Login to EU region
+node meross login --region EU "jixun.moe@your.email.eu" "your-password"
 ```
 
 Your should see the following:
@@ -38,6 +46,14 @@ Your should see the following:
 ```
 
 ... along with a message `login ok! save to user.json...`.
+
+### Deprecated
+
+Old login script, us region only:
+
+```bash
+node src/bin/do-login.js "jixun.moe@your.email.com" "your-password"
+```
 
 ## API Region Error
 

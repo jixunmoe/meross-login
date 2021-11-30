@@ -11,5 +11,8 @@
   "dependencies": {
     "node-fetch": "^2.6.1",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "commander": "^8.3.0"
   }
 }
