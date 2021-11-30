@@ -30,18 +30,16 @@ const apiRegion = new Map([
 
 class RemoteAPI {
     config = { };
-    accountCountryCode = 'US';
-    remoteBase = "https://iot.meross.com/";
+    accountCountryCode = "";
+    remoteBase = "";
 
     constructor(config) {
         this.config = config;
-        this.setRegionToUS();
+        this.setRegion('US');
     }
 
     /**
-     * FIXME: Not sure why, but it seems
-     *        all region uses the US endpoint.
-     * However, there's "eu-iot.meross.com" but gives the same 1030 error...
+     * @deprecated Use {@link setRegion setRegion('US')} instead.
      */
     setRegionToUS() {
         this.setRegion('US');
@@ -49,7 +47,10 @@ class RemoteAPI {
 
     setRegion(regionCode) {
         if (!apiRegion.has(regionCode)) {
-            throw new RangeError(`invalid region code given: ${regionCode}; expected one of ${apiRegion.keys()}`);
+            throw new RangeError(`
+                invalid region code given: ${regionCode};
+                expected one of: ${Array.from(apiRegion.keys())}
+            `);
         }
         const { code, base } = apiRegion.get(regionCode);
         this.accountCountryCode = code;
