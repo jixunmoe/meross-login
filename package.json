@@ -4,7 +4,8 @@
   "description": "A POC to login to Meross IOT API and get user token/key.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"it works!\""
+    "test": "echo \"it works!\"",
+    "lint": "eslint ."
   },
   "author": "Jixun Wu<https://github.com/JixunMoe>",
   "license": "BSD-3-Clause",
@@ -12,5 +13,31 @@
     "commander": "^8.3.0",
     "node-fetch": "^2.6.1",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3"
+  },
+  "eslintConfig": {
+    "env": {
+      "commonjs": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2021
+    },
+    "rules": {
+      "no-console": "off"
+    }
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

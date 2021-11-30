@@ -6,19 +6,19 @@ const mobileOs = 'Android';
 const mobileOsVersion = '11.0';
 
 module.exports = function getMobileInfo(config) {
-    const {
-        android_id = '0000000000000000',
-        install_uuid = '00000000-0000-0000-0000-000000000000'
-    } = config.mobile;
+  const {
+    android_id: androidID = '0000000000000000',
+    install_uuid: installUUID = '00000000-0000-0000-0000-000000000000',
+  } = config.mobile;
 
-    const uuid = android_id + install_uuid;
+  const uuid = androidID + installUUID;
 
-    return {
-        resolution,
-        carrier,
-        deviceModel,
-        mobileOs,
-        mobileOsVersion,
-        uuid,
-    };
+  return {
+    resolution,
+    carrier,
+    deviceModel,
+    mobileOs,
+    mobileOsVersion,
+    uuid,
+  };
 };

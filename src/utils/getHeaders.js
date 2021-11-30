@@ -4,11 +4,11 @@ const AppLanguage = 'zh-Hant';
 const AppType = 'Android';
 
 module.exports = function getHeaders(userToken = '') {
-    return {
-        AppVersion,
-        vender,
-        AppLanguage,
-        AppType,
-        Authorization: `Basic ${userToken}`
-    };
+  return {
+    AppVersion,
+    vender,
+    AppLanguage,
+    AppType,
+    Authorization: `Basic ${userToken}`,
+  };
 };

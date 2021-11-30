@@ -1,5 +1,6 @@
-const RemoteAPI = require("../utils/remoteAPI");
 const fs = require('fs');
+const RemoteAPI = require('../utils/remoteAPI');
+const defaultConfig = require('../../config.json');
 
 // Example response when login success:
 // {
@@ -18,19 +19,19 @@ const fs = require('fs');
 // }
 
 async function main(argv) {
-    const [email, password] = argv;
-    if (!email || !password) {
-        console.error("usage: <script> <email> <password>");
-        return 1;
-    }
+  const [email, password] = argv;
+  if (!email || !password) {
+    console.error('usage: <script> <email> <password>');
+    process.exit(1);
+  }
 
-    const api = new RemoteAPI(require('../../config.json'));
-    const resp = await api.signIn(email, password);
-    console.info(resp);
-    if (resp.apiStatus === 0) {
-        console.info("login ok! save to user.json...");
-        fs.writeFileSync("user.json", JSON.stringify(resp.data, null, 2), 'utf-8');
-    }
+  const api = new RemoteAPI(defaultConfig);
+  const resp = await api.signIn(email, password);
+  console.info(resp);
+  if (resp.apiStatus === 0) {
+    console.info('login ok! save to user.json...');
+    fs.writeFileSync('user.json', JSON.stringify(resp.data, null, 2), 'utf-8');
+  }
 }
 
 main(process.argv.slice(2)).catch(console.error);
