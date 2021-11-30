@@ -1,10 +1,11 @@
+const pkg = require('../../package.json');
 const { inspect } = require('util');
 const { program } = require('commander');
 
 const loginAction = require('../actions/loginAction');
 const generateConfigAction = require('../actions/generateConfigAction');
 
-program.version('0.0.1');
+program.version(pkg.version);
 
 const errorWrapper =
   (fn) =>
