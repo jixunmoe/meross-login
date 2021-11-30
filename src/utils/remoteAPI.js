@@ -1,6 +1,7 @@
 // class: com.meross.http.Remote
 
 const fetch = require('node-fetch');
+const apiRegion = require('./apiRegion');
 const getHeaders = require('./getHeaders');
 const getMobileInfo = require('./getMobileInfo');
 const { encryptBody } = require('./httpUtils');
@@ -16,23 +17,6 @@ const { encryptBody } = require('./httpUtils');
 //     "info": "redirect app to login other than this region",
 //     "timeStamp": 1623977935
 // }
-
-const apiRegion = new Map([
-  [
-    'US',
-    {
-      code: 'US',
-      base: 'https://us-iot.meross.com',
-    },
-  ],
-  [
-    'EU',
-    {
-      code: 'EU',
-      base: 'https://eu-iot.meross.com',
-    },
-  ],
-]);
 
 class RemoteAPI {
   constructor(config) {
