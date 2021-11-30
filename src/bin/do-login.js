@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @deprecated Use "node meross login" instead.
+ */
+
 const fs = require('fs');
 const RemoteAPI = require('../utils/remoteAPI');
 const defaultConfig = require('../../config.json');
