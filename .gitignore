@@ -5,3 +5,8 @@ node_modules/
 
 /local.cmd
 /local.sh
+
+local/
+data/
+user*.json
+config*.json
