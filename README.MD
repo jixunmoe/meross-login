@@ -1,14 +1,23 @@
-# Meross user info fetch tool
+# Un-official meross-cli
 
-## Install
+## Prerequisite
 
-Install node v14+, then run `npm ci` to setup dependencies.
+Install node v14+, then run `npm ci --prod` to setup dependencies.
 
 ## Usage
 
 For command and its flags, run `node meross help` for built-in usage & help.
 
-### CLI usage walkthrough
+### Commands
+
+Currently implemented commands:
+
+- `login`
+- `generate-config`
+
+Run `node meross <command> --help` for command help.
+
+### Getting Started
 
 Run `generate-config` command to generate a random mobile config (uuid):
 
@@ -115,11 +124,13 @@ For an example of the header, see: [Robdel12/homebridge-meross-plug/src/index.js
 
 ## TODO
 
-- [ ] Publish this package somewhere
+- [ ] Publish this npm package somewhere (github/npmjs)
+- [ ] Publish to `ghcr.io` as a docker container
+- [ ] Instruction on how to contribute / debug / capture
 
 ## Source
 
-* `meross_v2.28.1.apk`
+- `meross_v2.28.1.apk`
 
 ## License
 
