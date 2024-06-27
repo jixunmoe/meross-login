@@ -13,6 +13,13 @@ const apiRegion = new Map([
       base: 'https://eu-iot.meross.com',
     },
   ],
+  [
+    'AP',
+    {
+      code: 'AU',
+      base: 'https://iotx-ap.meross.com',
+    },
+  ],
 ]);
 
 module.exports = apiRegion;
